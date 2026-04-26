@@ -6,24 +6,24 @@
     --secondary: #1B4D3E;
     --secondary-light: #2D6A4F;
     --accent: #FFD700;
-    --bg-dark: #06111C;
-    --glass: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --text-white: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.7);
+    --bg-light: #FDFDFD;
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(27, 77, 62, 0.1);
+    --text-dark: #1F2937;
+    --text-muted: #6B7280;
 }
 
 /* ----- Base & Fond ----- */
 body {
     font-family: 'Outfit', sans-serif;
-    background: radial-gradient(circle at top right, #1B4D3E 0%, #06111C 60%);
+    background: linear-gradient(135deg, #FDFDFD 0%, #F3F4F6 100%);
     background-attachment: fixed;
     margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-white);
+    color: var(--text-dark);
     overflow-x: hidden;
 }
 
@@ -31,17 +31,17 @@ body {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(166, 124, 82, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(27, 77, 62, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(166, 124, 82, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(27, 77, 62, 0.05) 0%, transparent 40%);
     pointer-events: none;
     z-index: 0;
 }
 
-/* ----- Conteneur principal (glassmorphisme) ----- */
+/* ----- Conteneur principal ----- */
 .glass {
     background: var(--glass);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
 }
 
@@ -52,13 +52,13 @@ body {
     max-width: 440px;
     padding: 2.5rem 1.8rem;
     border-radius: 2.5rem;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 50px -10px rgba(27, 77, 62, 0.1);
     text-align: center;
-    animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -68,16 +68,16 @@ body {
 }
 
 .app-logo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 0 20px rgba(166, 124, 82, 0.4));
+    filter: drop-shadow(0 10px 15px rgba(27, 77, 62, 0.1));
     animation: pulseLogo 3s infinite ease-in-out;
 }
 
 @keyframes pulseLogo {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(166, 124, 82, 0.4)); }
-    50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(166, 124, 82, 0.6)); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
 }
 
 h1 {
@@ -85,7 +85,7 @@ h1 {
     font-size: 2.2rem;
     margin: 0;
     letter-spacing: 2px;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -93,26 +93,27 @@ h1 {
 }
 
 #location-name {
-    color: var(--text-muted);
+    color: var(--secondary);
     font-size: 1rem;
     margin-top: 0.5rem;
-    font-weight: 300;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 /* ----- Carte des horaires ----- */
 .glass-card {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 2rem;
     padding: 1.5rem;
     margin: 2rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(27, 77, 62, 0.05);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .glass-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 15px 30px -5px rgba(27, 77, 62, 0.1);
 }
 
 .current-time {
@@ -120,8 +121,7 @@ h1 {
     font-weight: 200;
     margin-bottom: 1.5rem;
     letter-spacing: 4px;
-    color: var(--primary-light);
-    text-shadow: 0 0 20px rgba(193, 154, 107, 0.3);
+    color: var(--secondary);
 }
 
 .times-grid {
@@ -135,25 +135,26 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(27, 77, 62, 0.03);
     border-radius: 1.2rem;
     font-size: 1.1rem;
     transition: all 0.3s;
     border: 1px solid transparent;
+    color: var(--text-dark);
 }
 
 .time-row:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(27, 77, 62, 0.06);
+    border-color: rgba(27, 77, 62, 0.1);
 }
 
 .time-row.next-prayer {
-    background: linear-gradient(90deg, rgba(166, 124, 82, 0.2), rgba(27, 77, 62, 0.2));
-    border: 1px solid rgba(166, 124, 82, 0.3);
-    color: var(--primary-light);
+    background: linear-gradient(90deg, rgba(166, 124, 82, 0.1), rgba(27, 77, 62, 0.1));
+    border: 1px solid rgba(27, 77, 62, 0.2);
+    color: var(--secondary);
     font-weight: 600;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(27, 77, 62, 0.05);
 }
 
 .next-prayer-info {
@@ -164,14 +165,14 @@ h1 {
 
 #countdown {
     font-weight: 700;
-    color: var(--primary-light);
+    color: var(--primary);
     font-size: 1.2rem;
     margin-left: 0.5rem;
 }
 
 .progress-bar {
     height: 6px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(27, 77, 62, 0.05);
     border-radius: 10px;
     margin-top: 1rem;
     overflow: hidden;
@@ -181,7 +182,6 @@ h1 {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, var(--secondary), var(--primary));
-    box-shadow: 0 0 10px var(--primary);
     transition: width 60s linear;
 }
 
@@ -200,7 +200,6 @@ h1 {
     font-size: 1.1rem;
     font-weight: 500;
     font-family: 'Outfit', sans-serif;
-    backdrop-filter: blur(10px);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -211,37 +210,33 @@ h1 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--secondary);
     color: white;
     border: none;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
 }
 
 .btn-primary:hover:not(:disabled) {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    filter: brightness(1.1);
-}
-
-.btn-primary:active:not(:disabled) {
-    transform: translateY(0);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(27, 77, 62, 0.3);
+    background: var(--secondary-light);
 }
 
 .btn-primary:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background: #444;
+    background: #ccc;
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-white);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: white;
+    color: var(--secondary);
+    border: 1px solid rgba(27, 77, 62, 0.1);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #f9fafb;
+    border-color: var(--secondary);
 }
 
 .status-text {
