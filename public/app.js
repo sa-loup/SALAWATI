@@ -217,7 +217,11 @@ async function toggleNotifications() {
       await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(subscription)
+        body: JSON.stringify({
+            subscription: subscription,
+            location: currentCoords,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        })
       });
       notifText.textContent = 'Désactiver les notifications';
       statusText.textContent = 'Notifications activées 🔔';

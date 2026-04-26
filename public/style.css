@@ -15,7 +15,7 @@
 
 
 /* ----- Base & Fond ----- */
-html,body {
+html, body {
     font-family: 'Outfit', sans-serif;
     background-color: #061f1a; /* Dark Forest Green */
     background: radial-gradient(circle at top right, #1B4D3E 0%, #06111C 100%);

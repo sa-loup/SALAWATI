@@ -3,8 +3,8 @@ self.addEventListener('push', event => {
   const title = data.title || 'Temps de Salat';
   const options = {
     body: data.body || 'C\'est l\'heure de la prière !',
-    icon: '/icons/icon-192.png',
-    badge: '/icons/badge-72.png',
+    icon: data.icon || '/logo.png',
+    badge: data.badge || '/logo.png',
     vibrate: [200, 100, 200],
     tag: 'salat-reminder'
   };
