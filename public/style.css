@@ -1,0 +1,191 @@
+/* ----- Base & Fond ----- */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0b1e33 0%, #1a2f45 40%, #0f2027 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.bg-pattern {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,215,0,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(100,149,237,0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ----- Conteneur principal (glassmorphisme) ----- */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 420px;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----- En-tête ----- */
+.header {
+  margin-bottom: 1.5rem;
+}
+.crescent-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.6));
+}
+h1 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 0.5rem 0 0.2rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#location-name {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+}
+
+/* ----- Carte des horaires ----- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.hidden {
+  display: none;
+}
+
+.current-time {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+.times-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.time-row.next-prayer {
+  background: linear-gradient(90deg, #FFD70033, #FFA50033);
+  border-left: 3px solid #FFD700;
+  font-weight: 700;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255,215,0,0.15);
+}
+
+.next-prayer-info {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+.countdown {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  margin-top: 0.8rem;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #FFD700, #FF8C00);
+  transition: width 60s linear;
+}
+
+/* ----- Boutons ----- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.glass-btn {
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 3rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: rgba(255, 215, 0, 0.15);
+  color: #FFD700;
+}
+.btn-primary:hover:not(:disabled) {
+  background: rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.05);
+  color: #eee;
+  border: 1px dashed rgba(255,255,255,0.3);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.status-text {
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+  opacity: 0.7;
+  min-height: 1.2em;
+}

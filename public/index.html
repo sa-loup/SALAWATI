@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Temps de Salat</title>
+</head>
+<body>
+  <!-- Fond décoratif avec motif géométrique -->
+  <div class="bg-pattern"></div>
+
+  <div class="container glass">
+    <div class="header">
+      <div class="crescent-icon">🌙</div>
+      <h1>SALAWAT</h1>
+      <p id="location-name">Détection de la ville...</p>
+    </div>
+
+    <!-- Carte des horaires -->
+    <div id="times-card" class="glass-card hidden">
+      <div class="current-time">
+        <span id="current-time">--:--</span>
+      </div>
+      <div id="times-grid" class="times-grid"></div>
+      <div class="next-prayer-info">
+        Prochaine prière : <strong id="next-prayer-name">--</strong> dans <span id="countdown">--</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="fill"></div>
+      </div>
+    </div>
+
+    <!-- Boutons -->
+    <div class="actions">
+      <button id="enable-notifications" class="btn-primary glass-btn" disabled>
+        <span id="notif-icon">🔔</span>
+        <span id="notif-text">Activer les notifications</span>
+      </button>
+      <button id="test-notification" class="btn-secondary glass-btn" style="display:none;">
+        🧪 Tester une notification
+      </button>
+    </div>
+    <p id="notification-status" class="status-text"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
