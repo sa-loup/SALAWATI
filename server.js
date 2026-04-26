@@ -46,8 +46,8 @@ app.post('/api/test-notification', (req, res) => {
   const payload = JSON.stringify({
     title: '🧪 Test de notification',
     body: 'Si vous voyez ceci, les notifications fonctionnent !',
-    icon: '/icons/icon-192.png',
-    badge: '/icons/badge-72.png',
+    icon: '/logo.png',
+    badge: '/logo.png',
     vibrate: [200, 100, 200],
     tag: 'test-notif'
   });
@@ -85,8 +85,9 @@ cron.schedule('* * * * *', async () => {
       if (timings[prayer] && timings[prayer].startsWith(nowTime)) {
         // C'est l'heure de cette prière, envoyer la notification
         const payload = JSON.stringify({
-          title: '🕌 Temps de Salat',
-          body: `C'est l'heure de la prière ${prayer} !`
+          title: '🕌 SALAWATI - Temps de Salat',
+          body: `C'est l'heure de la prière ${prayer} !`,
+          icon: '/logo.png'
         });
         subscriptions.forEach(sub => {
           webpush.sendNotification(sub, payload).catch(err => {
